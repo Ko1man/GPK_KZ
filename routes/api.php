@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\AuthorController;
+use App\Http\Controllers\Api\NewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/authors', [AuthorController::class, 'index']);
+
+Route::get('/news', [NewsController::class, 'index']);
+Route::post('/news/create', [NewsController::class, 'store']);
+Route::get('/news/{news}', [NewsController::class, 'show']);
+Route::put('/news/{news}', [NewsController::class, 'update']);
+Route::delete('/news/{news}', [NewsController::class, 'destroy']);
