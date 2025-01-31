@@ -84,7 +84,4 @@ class NewsController extends Controller
         return response()->json(['message' => 'Deleted Successfully'], 200);
     }
 
-    public function com(){
-        return Comment::all();
-    }
 }

@@ -70,7 +70,7 @@
 
                 // Отправка данных через fetch
                 fetch("{{ url('/api/news') }}/" + news, {
-                    method: "PUT",
+                    method: "POST",
                     headers: {
                         "X-CSRF-TOKEN": "{{ csrf_token() }}",  // Для защиты от CSRF атак
                     },

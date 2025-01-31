@@ -22,11 +22,11 @@ class UpdateNewsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'string',
-            'short_description' => 'string|max:128',
-            'full_description' => 'string',
-            'image' => 'string',
-            'author_id' => 'string|exists:authors,id',
+            'title' => 'required|string|max:255',
+            'short_description' => 'required|string',
+            'full_description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'author_id' => 'required|exists:authors,id',
         ];
     }
 }
