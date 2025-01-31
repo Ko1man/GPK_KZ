@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/news', [NewsController::class, 'index']);
 Route::get('/news/{id}', [NewsController::class, 'show']);
 Route::get('/create', [NewsController::class, 'create']);
+Route::get('/news/{id}/edit', [NewsController::class, 'edit']);
+
+
+
+Route::get('/register', [\App\Http\Controllers\AuthController::class, 'index']);

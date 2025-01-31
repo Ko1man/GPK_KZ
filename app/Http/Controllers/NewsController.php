@@ -18,4 +18,9 @@ class NewsController extends Controller
    public function create(){
        return view('news.create');
    }
+
+   public function edit($id){
+       $news=News::findOrFail($id);
+       return view('news.update', compact('news'));
+   }
 }

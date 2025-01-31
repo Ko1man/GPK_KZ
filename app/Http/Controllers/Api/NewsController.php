@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\News;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
@@ -50,7 +51,9 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        return $news->load('author');
+        $news = $news->load('author', 'comment');
+
+        return response()->json($news, 200);
     }
 
     /**
@@ -58,8 +61,18 @@ class NewsController extends Controller
      */
     public function update(UpdateNewsRequest $request, News $news)
     {
-        $news->update($request->all());
-        return $news;
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $news->image = $imagePath;  // Сохраняем путь к изображению
+        }
+
+        // Обновляем остальные данные новости
+        $news->update($request->except('image'));  // И исключаем поле image, так как оно уже обновляется
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Новость обновлена успешно!',
+            'data' => $news]);
     }
 
     /**
@@ -69,5 +82,9 @@ class NewsController extends Controller
     {
         $news->delete();
         return response()->json(['message' => 'Deleted Successfully'], 200);
+    }
+
+    public function com(){
+        return Comment::all();
     }
 }

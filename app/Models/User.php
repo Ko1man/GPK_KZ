@@ -11,7 +11,11 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable;
     protected $guarded = [];
     protected $table ='users';
+
+    public function comment(){
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
 }

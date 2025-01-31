@@ -11,19 +11,17 @@
     <link href="{{asset('/circle/assets/css/custom.css')}}" rel="stylesheet">
     <link href="{{asset('/circle/assets/css/main.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ mix('css/custom.css') }}">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @stack('css')
     @vite(['resources/js/app.js'])
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 <div class="page-container">
-    @include('layouts.header')
-    @include('layouts.sidebar')
-<div class="page-content">
+
         @yield('content')
     </div>
-</div>
+
 
 </body>
 </html>

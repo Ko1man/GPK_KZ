@@ -15,4 +15,7 @@ class News extends Model
     public function author(){
         return $this->belongsTo(Author::class, 'author_id');
     }
+    public function comment(){
+        return $this->hasMany(Comment::class, 'news_id', 'id');
+    }
 }
