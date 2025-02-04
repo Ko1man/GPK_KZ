@@ -1,9 +1,17 @@
 <template>
-    <Layout />
+    <div>
+        <h1>Новости</h1>
+        <router-view></router-view> <!-- Тут рендерятся страницы -->
+    </div>
+
 </template>
 
-<script setup>
-// Импортируем Layout компонент, если нужно
-import Layout from './Layout.vue';
-</script>
+<script>
+import NewsComponent from "@/components/NewsComponent.vue";
 
+export default {
+    components: {
+        NewsComponent
+    },
+};
+</script>

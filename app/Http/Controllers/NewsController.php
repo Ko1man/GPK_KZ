@@ -12,6 +12,7 @@ class NewsController extends Controller
    }
 
    public function show($id, News $news){
+
        return view('news.show', compact('id', 'news'));
    }
 

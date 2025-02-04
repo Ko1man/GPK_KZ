@@ -51,7 +51,11 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
+
         $news = $news->load('author', 'comment');
+        if (!$news) {
+            abort(404);
+        }
 
         return response()->json($news, 200);
     }
