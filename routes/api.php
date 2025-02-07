@@ -37,3 +37,7 @@ Route::delete('/comments/{commentId}', [ComentController::class, 'delete']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/users', [\App\Http\Controllers\Api\UserController::class, 'getAllUsers']);
+Route::get('/users/{id}', [\App\Http\Controllers\Api\UserController::class, 'getUser']);
+Route::patch('/users/{user}', [\App\Http\Controllers\Api\UserController::class, 'updateUser']);
