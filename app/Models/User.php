@@ -18,4 +18,7 @@ class User extends Authenticatable
     public function comment(){
         return $this->hasMany(Comment::class, 'user_id', 'id');
     }
+    public function group(){
+        return $this->belongsTo(Groups::class, 'group_id', 'id');
+    }
 }

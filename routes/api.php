@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\ComentController;
+use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\NewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -41,3 +42,5 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/users', [\App\Http\Controllers\Api\UserController::class, 'getAllUsers']);
 Route::get('/users/{id}', [\App\Http\Controllers\Api\UserController::class, 'getUser']);
 Route::patch('/users/{user}', [\App\Http\Controllers\Api\UserController::class, 'updateUser']);
+
+Route::post('/addDocument', [DocumentController::class, 'store']);

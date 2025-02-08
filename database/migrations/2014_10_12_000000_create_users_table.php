@@ -14,14 +14,23 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('last_name');
+            $table->string('second_name');
+            $table->string('date_of_admission');
+            $table->string('date_of_birth');
+            $table->bigInteger('group_id');
+            $table->string('address')->unique()->nullable();
+            $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone')->unique();
-            $table->string('address')->unique()->nullable();
             $table->string('password');
             $table->string('profile_image')->nullable();
+            $table->string('role')->default('student');
+            $table->string('type')->default('user');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
         });
     }
 
