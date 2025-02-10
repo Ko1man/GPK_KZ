@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ComentStoreRequest;
 use App\Models\Comment;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ComentController extends Controller
@@ -16,7 +15,6 @@ class ComentController extends Controller
         $comment = Comment::create([
             'user_id' => Auth::id(),  // Получаем ID текущего пользователя
             'comment' => $request->comment,  // Предполагаем, что поле 'content' есть в комментарии
-            // Здесь добавьте другие поля, если они есть, например:
             'news_id' => $request->news_id,
         ]);
 

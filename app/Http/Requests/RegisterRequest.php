@@ -23,6 +23,11 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
+            'last_name'=>'required|string',
+            'second_name'=>'required|string',
+            'date_of_admission'=>'required|string',
+            'date_of_birth'=>'required|string',
+            'group_id'=>'required|string',
             'email'=>'required|string|email|unique:users',
             'phone'=>'required|string|max:11|unique:users',
             'password'=>'required|string|confirmed|min:6',
