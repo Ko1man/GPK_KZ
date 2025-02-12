@@ -34,7 +34,6 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-
         return response()->json([
             'message' => 'Регистрация прошла успешно!',
             'user'    => $user,

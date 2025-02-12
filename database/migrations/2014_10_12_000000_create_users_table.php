@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('date_of_admission');
             $table->string('date_of_birth');
             $table->bigInteger('group_id');
-            $table->string('address')->unique()->nullable();
+            $table->string('address')->nullable();
             $table->string('phone')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();

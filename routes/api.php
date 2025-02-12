@@ -42,7 +42,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login']);
 
 // пользователи и профиль
-Route::get('/users', [\App\Http\Controllers\Api\UserController::class, 'getAllUsers']);
+Route::get('/users', [\App\Http\Controllers\Api\UserController::class, 'getAllUsers'])->name('users.index')->middleware(['auth']);
 Route::get('/users/{id}', [\App\Http\Controllers\Api\UserController::class, 'getUser']);
 Route::patch('/users/{user}', [\App\Http\Controllers\Api\UserController::class, 'updateUser']);
 

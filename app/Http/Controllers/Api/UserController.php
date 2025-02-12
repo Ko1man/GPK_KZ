@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function getAllUsers(){
-        return response()->json(['message'=>'Список пользовотелей выведен успешно', User::all()],200);
+        return response()->json(['message'=>'Список пользовотелей выведен успешно', 'data'=>User::all()],200);
     }
 
     public function getUser($id){

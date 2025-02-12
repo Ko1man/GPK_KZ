@@ -22,3 +22,5 @@ Route::get('/news/{id}/edit', [NewsController::class, 'edit']);
 
 
 Route::get('/register', [\App\Http\Controllers\AuthController::class, 'index']);
+
+Route::get('/all_users', [\App\Http\Controllers\UserController::class, 'index'])->middleware(['auth', 'admin']);
