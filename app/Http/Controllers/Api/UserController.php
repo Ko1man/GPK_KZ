@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\updateUserRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -26,5 +25,19 @@ class UserController extends Controller
         $user->update($request->validated());
         return response()->json(['massage'=>'пользователь обновлен успешно','data'=>$user],200);
     }
+
+    public function getTeachers(){
+        $teachers = User::where('role', 'teacher')->get();
+        return response()->json(['success'=> true, 'data'=>$teachers], 200);
+    }
+
+    public function getStudents(){
+        $students=User::where('role', 'student')->get();
+        return response()->json(['success'=> true, 'data'=>$students], 200);
+    }
+
+
+
+
 
 }

@@ -15,7 +15,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-         $documents = Documents::paginate(15);
+         $documents = Documents::paginate(30);
          return response()->json(DocumentRecourses::collection($documents));
     }
 
@@ -24,7 +24,7 @@ class DocumentController extends Controller
      */
     public function store(StoreDocumentsRequest $request)
     {
-        $path = $request->file('file')->store('documents');
+        $path = $request->file('file')->store('documents', 'public');
         $document = Documents::create([
             'department'=> $request->department,
             'title'=>$request->title,
@@ -32,6 +32,7 @@ class DocumentController extends Controller
 
         ]);
         return response()->json([
+            "success"=>true,
             'message' => 'Файл успешно загружен!',
             'document' => $document,
             'download_url' => asset("storage/{$path}"),

@@ -24,3 +24,7 @@ Route::get('/news/{id}/edit', [NewsController::class, 'edit']);
 Route::get('/register', [\App\Http\Controllers\AuthController::class, 'index']);
 
 Route::get('/all_users', [\App\Http\Controllers\UserController::class, 'index'])->middleware(['auth', 'admin']);
+Route::get('/teachers', [\App\Http\Controllers\UserController::class, 'getTeachers']);
+
+Route::get('/documents/create', [\App\Http\Controllers\DocumentController::class, 'index']);
+Route::get('/documents', [\App\Http\Controllers\DocumentController::class, 'getDocuments']);

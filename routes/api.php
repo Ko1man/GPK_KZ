@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\AuthorController;
 use App\Http\Controllers\Api\ComentController;
 use App\Http\Controllers\Api\DocumentController;
 use App\Http\Controllers\Api\NewsController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,9 +43,12 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login']);
 
 // пользователи и профиль
-Route::get('/users', [\App\Http\Controllers\Api\UserController::class, 'getAllUsers'])->name('users.index')->middleware(['auth']);
+Route::get('/users', [\App\Http\Controllers\Api\UserController::class, 'getAllUsers'])->name('users.index');
 Route::get('/users/{id}', [\App\Http\Controllers\Api\UserController::class, 'getUser']);
 Route::patch('/users/{user}', [\App\Http\Controllers\Api\UserController::class, 'updateUser']);
+Route::get('/teachers', [UserController::class, 'getTeachers']);
+Route::get('/students', [UserController::class, 'getStudents']);
+
 
 // документы
 Route::post('/add_document', [DocumentController::class, 'store']);

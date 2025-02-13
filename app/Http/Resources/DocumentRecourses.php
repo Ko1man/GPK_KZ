@@ -18,6 +18,7 @@ class DocumentRecourses extends JsonResource
             'department'=>$this->department,
             'title'=>$this->title,
             'file'=>$this->file,
+            'created_at'=>$this->created_at
         ];
     }
 }

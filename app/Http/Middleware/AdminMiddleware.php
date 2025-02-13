@@ -19,7 +19,7 @@ class AdminMiddleware
     {
 
         if (Auth::check() && Auth::user()->type !== 'admin') {
-            return response()->json(['message' => 'Доступ запрещён'], 403);
+            return response()->view('error.403');
         }
 
 
