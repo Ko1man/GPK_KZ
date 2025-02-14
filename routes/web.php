@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,5 @@ Route::get('/teachers', [\App\Http\Controllers\UserController::class, 'getTeache
 
 Route::get('/documents/create', [\App\Http\Controllers\DocumentController::class, 'index']);
 Route::get('/documents', [\App\Http\Controllers\DocumentController::class, 'getDocuments']);
+
+Route::get('/admin/create/user', [AdminController::class, 'create'])->name('admin.create.user');

@@ -53,3 +53,6 @@ Route::get('/students', [UserController::class, 'getStudents']);
 // документы
 Route::post('/add_document', [DocumentController::class, 'store']);
 Route::get('/documents', [DocumentController::class, 'index']);
+
+//admin api routes
+Route::post('/admin/user_create', [\App\Http\Controllers\Api\AdminController::class, 'store'])->name('admin.user.store');

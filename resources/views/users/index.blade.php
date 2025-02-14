@@ -4,6 +4,9 @@
     <div class="container">
         <h2 class="mb-4 text-center">📋 Список пользователей</h2>
         <div class="table-responsive shadow-lg p-3 bg-white rounded">
+            <div>
+                <a href="{{route('admin.create.user')}}" class="btn btn-outline-secondary">Создать пользователя</a>
+            </div>
             <table class="table table-hover text-center align-middle">
                 <thead class="table-dark">
                 <tr>
