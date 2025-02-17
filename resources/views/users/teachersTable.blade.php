@@ -15,6 +15,7 @@
                         <th>Дата поступления</th>
                         <th>Дата рождения</th>
                         <th>Адрес</th>
+                        <th>Роль</th>
                     </tr>
                     </thead>
                     <tbody id="teachers-table">
@@ -44,6 +45,7 @@
                             <td>${user.date_of_admission}</td>
                             <td>${user.date_of_birth}</td>
                             <td>${user.address ?? '—'}</td>
+                            <td>${user.role ?? '—'}</td>
                         </tr>`;
                         tableBody.innerHTML += row;
                     });

@@ -15,19 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/news', [NewsController::class, 'index']);
-Route::get('/news/{id}', [NewsController::class, 'show']);
-Route::get('/create', [NewsController::class, 'create']);
-Route::get('/news/{id}/edit', [NewsController::class, 'edit']);
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/create', [NewsController::class, 'create'])->name('news.create');
+Route::get('/news/{id}/edit', [NewsController::class, 'edit'])->name('news.edit');
 
 
 
 Route::get('/register', [\App\Http\Controllers\AuthController::class, 'index']);
 
-Route::get('/all_users', [\App\Http\Controllers\UserController::class, 'index'])->middleware(['auth', 'admin']);
-Route::get('/teachers', [\App\Http\Controllers\UserController::class, 'getTeachers']);
+Route::get('/all_users', [\App\Http\Controllers\UserController::class, 'index'])->middleware(['auth', 'admin'])->name('all_users');
+Route::get('/teachers', [\App\Http\Controllers\UserController::class, 'getTeachers'])->name('getTeachers');
+Route::get('/students', [\App\Http\Controllers\UserController::class, 'getStudents'])->name('getStudents');
 
-Route::get('/documents/create', [\App\Http\Controllers\DocumentController::class, 'index']);
-Route::get('/documents', [\App\Http\Controllers\DocumentController::class, 'getDocuments']);
+Route::get('/documents/create', [\App\Http\Controllers\DocumentController::class, 'index'])->name('documents.create');
+Route::get('/documents', [\App\Http\Controllers\DocumentController::class, 'getDocuments'])->name('documents');
 
 Route::get('/admin/create/user', [AdminController::class, 'create'])->name('admin.create.user');

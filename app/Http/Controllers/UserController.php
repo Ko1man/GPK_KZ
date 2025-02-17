@@ -12,4 +12,7 @@ class UserController extends Controller
     public function getTeachers(){
         return view('users.teachersTable');
     }
+    public function getStudents(){
+        return view('users.studentsTable');
+    }
 }
