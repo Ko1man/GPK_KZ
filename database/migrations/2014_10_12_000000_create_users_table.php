@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('second_name');
-            $table->string('date_of_admission');
-            $table->string('date_of_birth');
+            $table->date('date_of_admission');
+            $table->date('date_of_birth');
             $table->bigInteger('group_id');
             $table->string('address')->nullable();
             $table->string('phone')->unique();

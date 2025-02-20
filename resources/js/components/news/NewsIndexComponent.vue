@@ -1,6 +1,8 @@
 <script setup>
 import {ref, onMounted} from "vue";
+import {useRouter} from "vue-router";
 const newsCard = ref([]);
+const router =useRouter()
 
 onMounted(()=>{
     fetch('http://127.0.0.1:8000/api/news')
@@ -15,6 +17,9 @@ onMounted(()=>{
 const getImageUrl = (image) => {
     return `http://127.0.0.1:8000/storage/${image}`;
 };
+const goToNews = (id) => {
+  router.push({ name: 'news.show', params: { id } });
+};
 
 
 </script>
@@ -22,16 +27,17 @@ const getImageUrl = (image) => {
 <template>
     <div class="col-md-3">
         <div class="row">
-    <div class="news-container">
-        <div class="news-card" v-for="(news,index) in newsCard" :key="index">
-            <img :src="getImageUrl(news.image)" alt="News Image" class="news-image"/>
-            <div class="news-card-header">{{news.title}}</div>
-            <div class="news-card-body">
-                <p>{{ news.short_description }}</p>
+            <div class="news-container">
+                <div class="news-card" v-for="(news,index) in newsCard" :key="index">
+                    <img :src="getImageUrl(news.image)" alt="News Image" class="news-image"/>
+                    <div class="news-card-header">{{news.title}}</div>
+                    <div class="news-card-body">
+                        <p>{{ news.short_description }}</p>
+                    </div>
+                  <button class="btn btn-primary" @click="goToNews(news.id)">Подробнее</button>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
     </div>
 </template>
 
@@ -73,3 +79,4 @@ const getImageUrl = (image) => {
     color: #555;
 }
 </style>
+

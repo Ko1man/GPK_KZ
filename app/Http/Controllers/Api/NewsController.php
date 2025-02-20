@@ -53,6 +53,7 @@ class NewsController extends Controller
     {
 
         $news = $news->load('author', 'comment');
+        $news->increment('view_count');
         if (!$news) {
             abort(404);
         }
