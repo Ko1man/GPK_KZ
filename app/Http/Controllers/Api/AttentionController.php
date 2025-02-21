@@ -16,7 +16,8 @@ class AttentionController extends Controller
      */
     public function index()
     {
-        //
+        $attentions = Attention::with('user', 'group')->get();
+        return response()->json(['success'=>true,'data'=>$attentions], 200);
     }
 
     /**

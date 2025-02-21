@@ -4,10 +4,15 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\updateUserRequest;
+use App\Models\Groups;
 use App\Models\User;
 
 class UserController extends Controller
 {
+    public function getGroups(){
+        $groups = Groups::all();
+        return response()->json($groups);
+    }
     public function getAllUsers(){
         return response()->json(['message'=>'Список пользовотелей выведен успешно', 'data'=>User::all()],200);
     }

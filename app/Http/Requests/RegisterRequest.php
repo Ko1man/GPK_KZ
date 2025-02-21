@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             'second_name'=>'required|string',
             'date_of_admission'=>'required|date',
             'date_of_birth'=>'required|date',
-            'group_id'=>'required|string',
+            'group_id'=>'required|integer|exists:groups,id',
             'address'=>'required|string',
             'email'=>'required|string|email|unique:users',
             'phone'=>'required|string|max:11|unique:users',

@@ -35,6 +35,16 @@
                             </div>
                         </div>
 
+                        <div class="mb-3">
+                            <label for="group">Группа</label>
+                            <select class="form-control" v-model="form.group_id" required>
+                                <option value="" disabled>Выберите группу</option>
+                                <option v-for="group in groups" :key="group.id" :value="group.id">
+                                    {{ group.name }}
+                                </option>
+                            </select>
+                        </div>
+
                         <!-- Дата рождения -->
                         <div class="form-group mb-3">
                             <label>Дата рождения</label>
@@ -84,7 +94,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import {ref, computed, onMounted} from 'vue';
 import axios from 'axios';
 
 const form = ref({
@@ -129,7 +139,6 @@ const formattedDateOfAdmission = computed(() => {
 
 const formFields = {
     address: { label: 'Полный адрес', type: 'text' },
-    group_id: { label: 'Группа', type: 'text' },
     phone: { label: 'Введите телефон', type: 'tel' },
     email: { label: 'Email адрес', type: 'email' },
     password: { label: 'Пароль', type: 'password' },
@@ -142,6 +151,17 @@ const months = [
 ];
 
 const birthYears = Array.from({ length: 125 }, (_, i) => new Date().getFullYear() - i);
+const groups = ref([]);
+
+// Загружаем список групп из БД
+onMounted(async () => {
+    try {
+        const response = await axios.get('/api/groups');
+        groups.value = response.data;
+    } catch (error) {
+        console.error('Ошибка загрузки групп:', error);
+    }
+});
 
 const register = async () => {
     try {

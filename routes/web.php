@@ -33,3 +33,5 @@ Route::get('/documents/create', [\App\Http\Controllers\DocumentController::class
 Route::get('/documents', [\App\Http\Controllers\DocumentController::class, 'getDocuments'])->name('documents');
 
 Route::get('/admin/create/user', [AdminController::class, 'create'])->name('admin.create.user');
+
+Route::get('/attentions', [\App\Http\Controllers\AttentionController::class, 'index'])->name('attention');

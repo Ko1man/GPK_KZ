@@ -49,6 +49,9 @@ Route::patch('/users/{user}', [\App\Http\Controllers\Api\UserController::class, 
 Route::get('/teachers', [UserController::class, 'getTeachers']);
 Route::get('/students', [UserController::class, 'getStudents']);
 
+//groups
+Route::get('/groups', [UserController::class, 'getGroups']);
+
 
 // документы
 Route::post('/add_document', [DocumentController::class, 'store']);
@@ -58,5 +61,6 @@ Route::get('/documents', [DocumentController::class, 'index']);
 Route::post('/admin/user_create', [\App\Http\Controllers\Api\AdminController::class, 'store'])->name('admin.user.store');
 
 //attentions
+Route::get('/attention', [\App\Http\Controllers\Api\AttentionController::class, 'index']);
 Route::post('/attention', [\App\Http\Controllers\Api\AttentionController::class, 'store'])->name('attention');
 Route::put('/attention/{attention}', [\App\Http\Controllers\Api\AttentionController::class, 'update'])->name('attention.update');
