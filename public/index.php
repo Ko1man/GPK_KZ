@@ -53,3 +53,7 @@ $response = $kernel->handle(
 )->send();
 
 $kernel->terminate($request, $response);
+
+$port = $_ENV['PORT'] ?? 8080;
+$host = '0.0.0.0';
+exec("php -S $host:$port -t public");
