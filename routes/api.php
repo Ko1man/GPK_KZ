@@ -56,3 +56,7 @@ Route::get('/documents', [DocumentController::class, 'index']);
 
 //admin api routes
 Route::post('/admin/user_create', [\App\Http\Controllers\Api\AdminController::class, 'store'])->name('admin.user.store');
+
+//attentions
+Route::post('/attention', [\App\Http\Controllers\Api\AttentionController::class, 'store'])->name('attention');
+Route::put('/attention/{attention}', [\App\Http\Controllers\Api\AttentionController::class, 'update'])->name('attention.update');

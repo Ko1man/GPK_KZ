@@ -14,4 +14,8 @@ class Groups extends Model
     public function users(){
         return $this->hasMany(User::class, 'user_id', 'id');
     }
+
+    public function attentions(){
+        return $this->hasMany(Attention::class, 'group_id', 'id');
+    }
 }

@@ -22,5 +22,7 @@ class User extends Authenticatable
     public function group(){
         return $this->belongsTo(Groups::class, 'group_id', 'id');
     }
-
+    public function attentions(){
+        return $this->hasMany(Attention::class, 'user_id', 'id');
+    }
 }
