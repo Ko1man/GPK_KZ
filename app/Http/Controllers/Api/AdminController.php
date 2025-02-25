@@ -25,7 +25,6 @@ class AdminController extends Controller
             'role'=>$request->role
         ]);
         $token = $user->createToken('MyApp')->plainTextToken;
-        Auth::guard('web')->login($user);
 
         return response()->json([
             'success'=>true,

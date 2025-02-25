@@ -2,7 +2,7 @@
 @section('content')
     <div class="main-wrapper">
         <div class="container">
-            <h2 class="mb-4 text-center">📋 Список преподователей</h2>
+            <h2 class="mb-4 text-start">Список преподователей</h2>
             <div class="table-responsive shadow-lg p-3 bg-white rounded">
                 <table class="table table-hover text-center align-middle">
                     <thead class="table-dark">

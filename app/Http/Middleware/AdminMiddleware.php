@@ -22,7 +22,6 @@ class AdminMiddleware
             return response()->view('error.403');
         }
 
-
         return $next($request);
     }
 

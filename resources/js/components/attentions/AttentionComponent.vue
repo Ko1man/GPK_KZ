@@ -1,7 +1,9 @@
 <template>
     <div>
         <h2>Список событий</h2>
+        <div class="card">
         <div v-if="!items.length">Загрузка...</div>
+
         <table class="table" v-else>
             <thead>
             <tr>
@@ -18,7 +20,9 @@
                 <td>{{ item.group?.name || 'Не указана' }}</td>
                 <td>{{ item.date }}</td>
                 <td>
-                    {{ item.attention === 1 ? 'Да' : item.attention === 0 ? 'Нет' : '' }}
+                   <span :class="{'text-green-500': item.attention === 1, 'text-red-500': item.attention === 0}">
+                            {{ item.attention === 1 ? 'Да' : item.attention === 0 ? 'Нет' : '' }}
+                   </span>
                 </td>
                 <td>
                     <button class="btn btn-success btn-sm" @click="setAttendance(item, 1)">Да</button>
@@ -27,6 +31,7 @@
             </tr>
             </tbody>
         </table>
+    </div>
     </div>
 </template>
 

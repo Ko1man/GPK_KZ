@@ -9,7 +9,7 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Settings</a>
+                    <a class="nav-link" href="{{route('news.index')}}">Новости</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Help</a>

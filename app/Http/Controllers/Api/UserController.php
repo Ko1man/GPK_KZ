@@ -14,7 +14,7 @@ class UserController extends Controller
         return response()->json($groups);
     }
     public function getAllUsers(){
-        return response()->json(['message'=>'Список пользовотелей выведен успешно', 'data'=>User::all()],200);
+        return response()->json(['message'=>'Список пользовотелей выведен успешно', 'data'=>User::filter()->get()],200);
     }
 
     public function getUser($id){
@@ -40,9 +40,4 @@ class UserController extends Controller
         $students=User::where('role', 'student')->get();
         return response()->json(['success'=> true, 'data'=>$students], 200);
     }
-
-
-
-
-
 }
