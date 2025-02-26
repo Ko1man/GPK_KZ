@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 class GroupsController extends Controller
 {
     public function store(Request $request){
-        $group  =Groups::create([
-            'name'=>$request->name,
-            'department_id'=>$request->department_id,
+        $group = $request->validate([
+            'name' => 'required|string',
+            'department_id' => 'required|exists:departments,id',
         ]);
+        Groups::create($group);
         return response()->json(['status'=>true,'data'=>$group],201);
     }
 }

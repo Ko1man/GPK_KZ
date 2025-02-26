@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class updateUserRequest extends FormRequest
+class StoreSchedulesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +22,13 @@ class updateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'string',
-            'last_name'=>'string',
-            'second_name'=>'string',
-            'date_of_admission'=>'date',
-            'date_of_birth'=>'date',
-            'group_id'=>'integer|exists:groups,id',
-            'address'=>'string',
-            'email'=>'string|email|unique:users',
-            'phone'=>'string|max:11|unique:users',
-            'password'=>'string|confirmed|min:6',
-            'role'=>'string'
+            'course_id' => 'required|exists:courses,id',
+            'group_id' => 'required|exists:groups,id',
+            'user_id' => 'required|exists:users,id',
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => 'required|date_format:H:i|after:start_time',
+            'class_room'=>'required|string',
+            'day_of_week'=>'required|string',
         ];
     }
 }

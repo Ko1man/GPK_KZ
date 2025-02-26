@@ -5,8 +5,10 @@
     <div class="container mt-5">
         <div class="card shadow-lg border-0 rounded-4">
             <div class="card-body">
-                <h2 class="text-center mb-4">📂 Список загруженных документов</h2>
-
+                <div class="d-flex align-items-center justify-content-between" style="width: 100%;">
+                <h2 class="flex-grow-1" style="white-space: nowrap;">Список загруженных документов</h2>
+                <a href="{{route('documents.create')}}" class="btn btn-primary mb-3">Загрузить документ</a>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover align-middle">
                         <thead class="table-dark">

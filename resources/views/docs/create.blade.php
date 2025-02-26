@@ -24,7 +24,7 @@
                                 <option>Студ. Совет</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary">Создать новость</button>
+                        <button type="submit" class="btn btn-primary mt-3">Создать новость</button>
                     </form>
                 </div>
             </div>

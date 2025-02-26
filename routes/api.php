@@ -51,6 +51,7 @@ Route::get('/students', [UserController::class, 'getStudents']);
 
 //groups
 Route::get('/groups', [UserController::class, 'getGroups']);
+Route::post('/groups/create', [\App\Http\Controllers\Api\GroupsController::class, 'store']);
 
 
 // документы
@@ -64,3 +65,10 @@ Route::post('/admin/user_create', [\App\Http\Controllers\Api\AdminController::cl
 Route::get('/attention', [\App\Http\Controllers\Api\AttentionController::class, 'index']);
 Route::post('/attention', [\App\Http\Controllers\Api\AttentionController::class, 'store'])->name('attention');
 Route::put('/attention/{attention}', [\App\Http\Controllers\Api\AttentionController::class, 'update'])->name('attention.update');
+
+//departments
+Route::get('/departments', [\App\Http\Controllers\Api\DepartmentController::class, 'index']);
+Route::post('/departments/create', [\App\Http\Controllers\Api\DepartmentController::class, 'store']);
+
+//Schedules
+Route::post('/schedules', [\App\Http\Controllers\Api\SchedulesController::class, 'store']);
