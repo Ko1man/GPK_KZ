@@ -12,6 +12,7 @@ class GroupsController extends Controller
         $group = $request->validate([
             'name' => 'required|string',
             'department_id' => 'required|exists:departments,id',
+            'course_id' => 'required|exists:courses,id',
         ]);
         Groups::create($group);
         return response()->json(['status'=>true,'data'=>$group],201);

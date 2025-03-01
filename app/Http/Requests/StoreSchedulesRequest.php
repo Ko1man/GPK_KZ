@@ -25,10 +25,10 @@ class StoreSchedulesRequest extends FormRequest
             'course_id' => 'required|exists:courses,id',
             'group_id' => 'required|exists:groups,id',
             'user_id' => 'required|exists:users,id',
-            'start_time' => 'required|date_format:H:i',
-            'end_time' => 'required|date_format:H:i|after:start_time',
-            'class_room'=>'required|string',
-            'day_of_week'=>'required|string',
+            'start_time' => 'required|date_format:H:i|after_or_equal:08:00|before_or_equal:20:00',
+            'end_time' => 'required|date_format:H:i|after:start_time|before_or_equal:20:00',
+            'class_room' => 'required|string|regex:/^[A-Za-z0-9-]+$/|max:10',
+            'day_of_week' => 'required|in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
         ];
     }
 }

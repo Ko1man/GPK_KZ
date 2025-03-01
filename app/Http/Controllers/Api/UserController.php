@@ -10,7 +10,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function getGroups(){
-        $groups = Groups::with('department')->get();
+        $groups = Groups::with('department', 'course')->get();
         return response()->json($groups);
     }
     public function getAllUsers(){

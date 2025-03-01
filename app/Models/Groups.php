@@ -22,4 +22,8 @@ class Groups extends Model
     public function department(){
         return $this->belongsTo(Departments::class, 'department_id', 'id');
     }
+
+    public function course(){
+        return $this->belongsTo(Courses::class, 'course_id', 'id');
+    }
 }

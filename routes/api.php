@@ -72,3 +72,6 @@ Route::post('/departments/create', [\App\Http\Controllers\Api\DepartmentControll
 
 //Schedules
 Route::post('/schedules', [\App\Http\Controllers\Api\SchedulesController::class, 'store']);
+
+//Courses
+Route::get('/courses', [\App\Http\Controllers\Api\CoursesController::class, 'index']);

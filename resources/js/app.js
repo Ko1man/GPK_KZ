@@ -5,6 +5,8 @@ import router from "@/router";
 import Register from "@/components/Register.vue";
 import AttentionComponent from "@/components/attentions/AttentionComponent.vue";
 import AdminRegister from "@/components/AdminRegister.vue";
+import CreateGroupsComponent from "@/components/groups/CreateGroupsComponent.vue";
+import ListGroupsComponent from "@/components/groups/ListGroupsComponent.vue";
 
 const app = createApp(App);
 app.use(router);
@@ -14,7 +16,11 @@ reg.mount("#reg")
 const att = createApp(AttentionComponent)
 att.mount("#att")
 const admin = createApp(AdminRegister);
-admin.mount("#admin");
+admin.mount("#admin")
+const group = createApp(CreateGroupsComponent)
+group.mount("#group")
+const GroupList = createApp(ListGroupsComponent)
+GroupList.mount("#list")
 
 
 const token = localStorage.getItem("token");
